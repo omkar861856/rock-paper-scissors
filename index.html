@@ -19,19 +19,18 @@
   <style>
     * {
       box-sizing: border-box;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
 
     html {
       width: 100vw;
       height: 100vh;
     }
-
-    body {
-      background-color: rgb(197, 157, 234);
-      display: flex;
-      flex-direction: column;
-      height: 98%;
+    body{
+      background-image: radial-gradient(circle,hsl(214, 47%, 23%), hsl(237, 49%, 15%));
     }
+
+  
 
     .main {
       flex: 1 1 auto;
@@ -48,28 +47,68 @@
       color: hsl(228, 45%, 44%);
     }
 
-    button {
+    .choice{
       border-radius: 50%;
       width: 150px;
       height: 150px;
       padding: 20px;
       background-color: aliceblue;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      
     }
 
-    .rock {
-      border-width: 10px;
-      border-color: blue;
-    }
 
-    #computer_display {
-
-      text-align: center;
-
+  
+    .score{
+      border: 2px solid lightgray;
+      border-radius: 20px;
+      width: 40%;
+      height: auto;
+      margin-top: 20px;
+      margin-bottom: 70px;
+      display: flex;
+      justify-content: space-between;
     }
-    .nav{
-      font-family: "Figtree";
+    .txt1{
+      color: white;
+      font-size: 25px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      
+      
     }
+    .board{
+      
+      background-color: white;
+      height: inherit;
+      width: auto;
+      margin: 20px;
+      border-radius: 10px;
+      
+      
+    }
+    .area{
+      display: grid;
+     
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+    .rock{
+      grid-column: 1/2;
+      grid-row: 1/2;
+      border: 15px solid red;
+    }
+    .paper{
+      grid-column: 3/4;
+      grid-row: 1/2;
+      border: 15px solid blue;
+    }
+    .scissors{
+      grid-column: 2/3;
+      grid-row: 3/4;
+      border: 15px solid yellow;
+    }
+   
+
   </style>
 
 </head>
@@ -77,68 +116,61 @@
 <body>
 
   <div class="main">
-    <div class="nav">
-      <div id="result"></div>
-      <div id="wins"></div>
-      <div id="losses"></div>
-      <div id="draws"></div>
+    <div class="score">
+      <pre class="txt1">
+        ROCK
+        PAPER     
+        SCISSORS</pre>
+        <div class="board">
+          <div style="margin-right: 35px;margin-left: 35px; font-size: 20px;">score <div id="wins"></div></div>
+          
+        </div>
+    </div>  
+    <div class="area">
+      <button class="choice rock" onclick="ComputerTurn(value)" value="rock"><img src="images\icon-rock.svg" alt="rock"></button>
+      <button class="choice paper" onclick="ComputerTurn(value)" value="paper"><img value="paper" src="images\icon-paper.svg"alt="paper"></button>
+      <button class="choice scissors" onclick="ComputerTurn(value)" value="scissors"><img value="scissors"src="images\icon-scissors.svg" alt="scissors" ></button>
     </div>
-    <div class="game">
-      <!-- Game logic goes here -->
-
-      <!-- Computer -->
-
-      <div id="computer_display">
-
-      </div>
-
-      <!-- Player -->
-      <div>
-        <button onclick="
-        ComputerTurn(value)" value="rock"><img class="rock" src="images\icon-rock.svg" alt="rock"></button>
-        <button onclick="ComputerTurn(value)" value="paper"><img class="paper" value="paper" src="images\icon-paper.svg"
-            alt="paper"></button>
-        <button onclick="ComputerTurn(value)" value="scissors"><img class="scissors" value="scissors"
-            src="images\icon-scissors.svg" alt="scissors"></button>
-      </div>
-
+    <div id="computer_display"></div>
+    <div class="rulz">
+      <button class="rlz">
+        rules
+      </button>      
     </div>
 
-  </div>
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">O</a>.
-  </div>
+   </div>
+
+  
+  
 
   <script>
 
     let wins = 0;
-    let losses = 0;
-    let draws = 0;
-    document.getElementById("wins").innerText = "Wins: " + wins;
-    document.getElementById("losses").innerText = "Losses: " + losses;
-    document.getElementById("draws").innerText = "Draws: " + draws;
+    // let losses = 0;
+    // let draws = 0;
+
+    document.getElementById("wins").innerText =  `${wins}`;
 
     function WinLogic(player, computer) {
 
-      if (player === computer) {
-        draws += 1;
-        document.getElementById("result").innerText = "draw"
-        document.getElementById("draws").innerText = "Draws: " + draws;
+      // if (player === computer) {
+      //   draws += 1;
+      //   document.getElementById("result").innerText = "draw"
+      //   document.getElementById("draws").innerText = "Draws: " + draws;
 
-      }
-      else if ((player === "rock" && computer === "scissors") || (player === "scissors" && computer === "paper") || (player === "paper" && computer === "rock")) {
+      // }
+      if ((player === "rock" && computer === "scissors") || (player === "scissors" && computer === "paper") || (player === "paper" && computer === "rock")) {
         wins += 1;
-        document.getElementById("result").innerText = "win"
-        document.getElementById("wins").innerText = "Wins: " + wins;
+        // document.getElementById("result").innerText = "win"
+        document.getElementById("wins").innerText = `${wins}`;
 
       }
-      else {
-        losses += 1;
-        document.getElementById("result").innerText = "loose"
-        document.getElementById("losses").innerText = "Losses: " + losses;
+      // else {
+      //   losses += 1;
+      //   document.getElementById("result").innerText = "loose"
+      //   document.getElementById("losses").innerText = "Losses: " + losses;
 
-      }
+      // }
 
 
     }
@@ -156,7 +188,7 @@
     function ComputerTurn(player) {
 
       const computer = Computer("rock", "paper", "scissors");
-
+      
       const compTurn = document.getElementsByClassName(computer);
 
       // console.log(compTurn[0])
@@ -171,6 +203,8 @@
         computerDisplay.appendChild(compTurn[0].cloneNode(true));
 
       }
+
+
 
       WinLogic(player, computer)
 
