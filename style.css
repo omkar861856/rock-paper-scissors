@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  html {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    background-image: radial-gradient(circle, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    flex: 1;
+  }
+
+  .main {
+    display: grid;
+    place-items: center;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+  }
+
+
+  .choice {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    padding: 20px;
+    background-color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  }
+
+  .score {
+    border: 2px solid lightgray;
+    border-radius: 20px;
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .txt1 {
+    color: white;
+    font-size: 25px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+
+  }
+
+  .board {
+
+    background-color: white;
+    height: inherit;
+    width: auto;
+    margin: 20px;
+    border-radius: 10px;
+
+
+  }
+
+  .area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
+
+  .rock {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border: 15px solid red;
+  }
+
+  .paper {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    border: 15px solid blue;
+  }
+
+  .scissors {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    border: 15px solid yellow;
+  }
+
+  #computer_display {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .board {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  #wins {
+
+    align-self: center;
+    justify-self: center;
+    font-size: 3rem;
+
+  }
+
+  .rulz {
+
+    width: 100%;
+    text-align: right;
+
+  }
+
+  .rlz {
+    color: white;
+    background-color: hsl(214, 47%, 23%);
+    border: 2px solid hsl(210, 18%, 96%);
+    border-radius: 0.25rem;
+    padding: 0.25rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  button {
+    cursor: pointer;
+  }
