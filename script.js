@@ -1,14 +1,19 @@
+  
 const props = ["rock", "paper", "scissors"];
 
 const wins = document.getElementById('wins');
-wins.innerText = window.localStorage.getItem('wins')
 
+if(window.localStorage.getItem('wins') === null){
+  window.localStorage.setItem('wins', 0);
+}
+
+wins.innerText = window.localStorage.getItem('wins');
 
 
 function ComputerTurn(player) {
 
 
-    // Randomise computer turn
+  // Randomise computer turn
   const computer = Math.floor(Math.random() * props.length);
   const computerTurn = props[computer];
 
@@ -16,11 +21,16 @@ function ComputerTurn(player) {
 
   const result = ResultLogic(player, computerTurn);
 
-  // set wins to local storage
-  wins.innerText = window.localStorage.getItem('wins')
+ 
+
+
+
+   // get wins from local storage
+   wins.innerText = window.localStorage.getItem('wins')
+
 
   
-  // player button
+// player button
   const playerButton = document.getElementById(player).cloneNode(true)
   playerButton.classList.remove(player)
   playerButton.classList.add('player')
@@ -97,4 +107,10 @@ function ResultLogic(player, computer) {
     wins.innerText = window.localStorage.getItem('wins')
 
   }
+
+  // calculator, memory game, tic-tac-toe, chess...
+
+
+
+
 
