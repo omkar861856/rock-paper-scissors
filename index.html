@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="style.css">
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  
+
 
 </head>
 
@@ -42,17 +42,16 @@
           src="images\icon-paper.svg" alt="paper"></button>
       <button id="scissors" class="choice scissors" onclick="ComputerTurn(value)" value="scissors"><img value="scissors"
           src="images\icon-scissors.svg" alt="scissors"></button>
-      <div id="player_display"></div>
-      <div id="computer_display"></div>
     </div>
     <div class="rulz">
       <button class="rlz">
         RULES
       </button>
+      <button onclick="setLocalStorage()">Local Store reset</button>
     </div>
   </div>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
